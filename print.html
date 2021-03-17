@@ -1,0 +1,413 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Cours Python</title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="preamble.html"><strong aria-hidden="true">1.</strong> Préambule</a></li><li class="chapter-item expanded affix "><li class="part-title">Rappel général</li><li class="chapter-item expanded "><a href="rappel/types.html"><strong aria-hidden="true">2.</strong> Types de données</a></li><li class="chapter-item expanded "><a href="rappel/operators.html"><strong aria-hidden="true">3.</strong> Opérateurs</a></li><li class="chapter-item expanded "><a href="rappel/variables.html"><strong aria-hidden="true">4.</strong> Variables</a></li><li class="chapter-item expanded affix "><li class="part-title">Notions importantes</li><li class="chapter-item expanded "><a href="important_notions/loops.html"><strong aria-hidden="true">5.</strong> Boucles</a></li><li class="chapter-item expanded "><a href="important_notions/conditional.html"><strong aria-hidden="true">6.</strong> Blocs conditionnels</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Cours Python</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="préambule"><a class="header" href="#préambule">Préambule</a></h1>
+<p>Ce cours est un &quot;tout ce que vous devez savoir&quot; pour préparer un examen sur Python.
+Je ne prétends à aucun moment que lire ce cours est suffisant pour avoir une très bonne note, mais il devrait déjà vous aider à vous en sortir si vous n'avez absolument rien compris et peut servir de fiche de révision.</p>
+<p>Bonne lecture et bonne chance.</p>
+<p>Écrit par Boutaib Ghali Omar: <a href="mailto:ghaliomar.g.ink@gmail.com">ghaliomar.g.ink@gmail.com</a></p>
+<h1 id="types-de-données"><a class="header" href="#types-de-données">Types de données</a></h1>
+<p>En Python, on doit traiter plusieurs <strong>types de données</strong>.</p>
+<p>Voici les principaux types de données que vous devez connaitre.</p>
+<h2 id="nombres"><a class="header" href="#nombres">Nombres</a></h2>
+<h3 id="int"><a class="header" href="#int">int</a></h3>
+<p>Les <code>int</code> (integer) représentent les nombres entiers. </p>
+<p>Exemples : 1, 45, 7632, -34, 27, -256</p>
+<h3 id="float"><a class="header" href="#float">float</a></h3>
+<p>Les <code>float</code> représentent les nombres décimaux/rationnels. </p>
+<p>Exemples : 1.5, 10/3, -34.2, 21.1, -2.56</p>
+<h2 id="texte"><a class="header" href="#texte">Texte</a></h2>
+<h3 id="string"><a class="header" href="#string">string</a></h3>
+<p>Les <code>string</code> (chaines de charactères) représentent du texte. Ils sont toujours notés entre guillements.</p>
+<p>Exemples : &quot;Bonjour!&quot;, &quot;POURQUOI Y'A UN ALLIGATOR DANS LA BAIGNOIRE&quot;, &quot;Python c'est pas si dur!&quot;</p>
+<h1 id="opérateurs"><a class="header" href="#opérateurs">Opérateurs</a></h1>
+<p>En Python, vous aurez souvent besoin de faire des calculs et des opérations, pour cela, vous ferez usage des <strong>opérateurs</strong>.</p>
+<h2 id="opérateurs-pour-lalgèbre"><a class="header" href="#opérateurs-pour-lalgèbre">Opérateurs pour l'algèbre</a></h2>
+<h3 id="addition-et-soustraction"><a class="header" href="#addition-et-soustraction">Addition et soustraction</a></h3>
+<p>Pour l'addition et la soustraction, c'est très simple. On utilise les mêmes signes que d'habitude, les signes <code>+</code> et <code>-</code>.</p>
+<p>Exemples : 1 + 1, 2 + 3, 5 - 2, 4.5 + 0.5, 7.75 - 1.75</p>
+<h3 id="multiplication-et-division"><a class="header" href="#multiplication-et-division">Multiplication et division</a></h3>
+<p>Pour la multiplication et la division, c'est un peu différent par rapport à d'habitude.</p>
+<h4 id="mutliplication"><a class="header" href="#mutliplication">Mutliplication</a></h4>
+<p>Pour la multiplication, on utilise le signe <code>*</code> (étoile)</p>
+<p>Exemples : 5 * 2, 4 * 3, 21 * 2, 452 * 769</p>
+<h4 id="division"><a class="header" href="#division">Division</a></h4>
+<p>Pour la division, on utilise le signe <code>/</code> (slash)</p>
+<p>Exemples : 4/3, 10/2, 452/31, 256/2</p>
+<h2 id="opérateurs-logiques"><a class="header" href="#opérateurs-logiques">Opérateurs logiques</a></h2>
+<ul>
+<li><code>&gt;</code> Supérieur strictement</li>
+<li><code>&gt;=</code> Supérieur ou égal</li>
+<li><code>&lt;</code> Inférieur strictement</li>
+<li><code>&lt;=</code> Inférieur ou égal</li>
+<li><code>==</code> Strictement égal, à ne pas confondre avec <code>=</code>, qui assigne une valeur a une variable! (Nous en parlerons dans le chapitre qui suis)</li>
+<li><code>!=</code> Différent de</li>
+</ul>
+<p><strong>Nous utiliserons les opérateurs logiques dans les sections Boucles et Blocs conditionnels.</strong></p>
+<h1 id="variables"><a class="header" href="#variables">Variables</a></h1>
+<p>En Python, vous aurez très souvent besoin de stocker des donnés quelquepart pour les réutiliser par la suite et faire des opérations notamment.</p>
+<p>Pour cela, on utilise des <strong>variables</strong>.</p>
+<p>Une variable a un <strong>nom</strong> et stocke <strong>une donnée</strong> de n'importe quel type, qui peut etre modifiée et utilisée tout au long du programme.</p>
+<h2 id="assignation-de-valeur"><a class="header" href="#assignation-de-valeur">Assignation de valeur</a></h2>
+<p>On assigne une valeur à une variable en écrivant son nom suivi d'un seul signe <code>=</code> suivi de la valeur.</p>
+<h3 id="exemples"><a class="header" href="#exemples">Exemples</a></h3>
+<p>Dans ce premier exemple, nous <strong>assignons</strong> une valeur de type numérique (int dans ce cas).</p>
+<pre><code class="language-python">age = 17
+</code></pre>
+<p>Dans ce second exemple, nous <strong>assignons</strong> une valeur de type texte (string).</p>
+<p><em><strong>ATTENTION! Il faut toujours entourer une valeur de type texte par des guillemets!</strong></em></p>
+<pre><code class="language-python">name = &quot;Ghali&quot;
+</code></pre>
+<h2 id="usage"><a class="header" href="#usage">Usage</a></h2>
+<p>Après avoir assigné une valeur à une variable, on peut la récupérer pour l'utiliser dans un calcul, une opération ou autre.</p>
+<p>Pour faire cela, on écris simplement le nom de la variable là où on veut l'utiliser (<em><strong>Sans guillemets! Il ne s'agit pas de texte!</strong></em>)</p>
+<h3 id="exemples-1"><a class="header" href="#exemples-1">Exemples</a></h3>
+<pre><code class="language-python">temp_celsius = 42
+
+temp_kelvin = temp_celsius + 273.15
+
+temp_fahrenheit = (temp_kelvin - 273.15) * 9/5 + 32
+</code></pre>
+<p>Ici, on a défini une variable <code>temp_celsius</code> et on lui a assigné la valeur <code>42</code>.</p>
+<p>Puis on a défini une variable <code>temp_kelvin</code> et on lui a assigné la valeur <code>temp_celsius + 273.15</code>, vous remarquez que l'on a fait usage de la variable <code>temp_celsius</code> que l'on a créé au préalable.</p>
+<p>De même, on a défini une variable <code>temp_farenheit</code> et on lui a assigné la valeur <code>(temp_kelvin - 273.15) * 9/5 + 32</code>, vous remarquerez que l'on a fait usage de la variable <code>temp_kelvin</code> que l'on a crée au préalable.</p>
+<h1 id="boucles"><a class="header" href="#boucles">Boucles</a></h1>
+<p>En Python, il sera souvent nécessaire de répéter des actions un certain nombre de fois, pour cela on utilise des <strong>boucles</strong>.
+On en distingue deux types : </p>
+<ul>
+<li>Les boucles bornées</li>
+<li>Les boucles non bornées</li>
+</ul>
+<h2 id="boucles-bornées"><a class="header" href="#boucles-bornées">Boucles bornées</a></h2>
+<p>Une boucle bornée est une boucle dont le nombre de répétitions est connu à l'avance.</p>
+<h3 id="la-boucle-for"><a class="header" href="#la-boucle-for">La boucle for</a></h3>
+<p>Voici un exemple de boucle <code>for</code></p>
+<pre><code class="language-python">for x in range(5):
+    print(x)
+</code></pre>
+<p>Ce morceau de code montre ce résultat à l'écran une fois éxécuté : </p>
+<pre><code>0
+1
+2
+3
+4
+</code></pre>
+<p>Essayons de comprendre ce morceau de code</p>
+<p>Tout d'abord la première ligne : </p>
+<pre><code class="language-python">for x in range(5):
+</code></pre>
+<p>On a tout d'abord le mot clé <code>for</code> qui signale a Python que l'on initie une boucle <code>for</code>, par la suite on donne le nom d'une variable qui contiendra la valeur de chaque itération ou répétition. Ici, il s'agit de <code>x</code>, mais on peut choisir n'importe quoi (comme <code>i</code> ou <code>n</code> ou même <code>nombre</code>).</p>
+<p>On a ensuite le mot clé <code>in</code> qui précède l'appel de la fonction <code>range(5)</code>. Cette fonction indique à Python que l'on veut <code>5</code> itérations ou répétitions de la boucle. On peut remplacer le <code>5</code> par n'importe quel autre <strong>nombre entier</strong> (<code>int</code>) et même par une variable. D'où cet exemple : </p>
+<pre><code class="language-python">repetitions = 10
+
+for i in range(repetitions):
+    print(i)
+</code></pre>
+<p>Qui montre ce résultat :</p>
+<pre><code>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+</code></pre>
+<p>Ensuite viens <code>:</code> qui indique à Python que les lignes <strong>(indentées!)</strong> qui suivent sont à l'intérieur de la boucle.</p>
+<p>Il ne faut pas oublier de mettre une indentation au début des lignes qui sont dans la boucle, car celles qui n'ont pas d'indendation sont considérées comme en dehors de la boucle. Voici un exemple : </p>
+<pre><code class="language-python">for i in range(5):
+    print(&quot;Ce message sera imprimé 5 fois a l'écran&quot;)
+
+print(&quot;Ce message ne sera imprimé qu'une seule fois a l'ecran.&quot;)
+</code></pre>
+<h2 id="boucles-non-bornées"><a class="header" href="#boucles-non-bornées">Boucles non bornées</a></h2>
+<p>Une boucle non bornée est une boucle dont le nombre de répétitions n'est <strong>pas connu</strong> a l'avance.</p>
+<h3 id="la-boucle-while"><a class="header" href="#la-boucle-while">La boucle while</a></h3>
+<p>La boucle <code>while</code> que l'on peut appeler &quot;tant que&quot; en francais se répète tant qu'une condition est vraie. Pour exprimer la condition de la boucle, on utilise les <strong>opérateurs logiques</strong> dont on a parlé dans un chapitre précèdent. </p>
+<p>Voici un exemple : </p>
+<pre><code class="language-python">i = 0
+
+while i &lt; 10:
+    print(i)
+    i = i + 1
+
+print(&quot;Fini!&quot;)
+</code></pre>
+<p>Ici, on initialise d'abord une variable que l'on nomme <code>i</code> et on lui assigne la valeur <code>0</code>.</p>
+<p>Ensuite, on lance une boucle <code>while</code>. On peut lire cette ligne comme &quot;tant que i est infèrieur strictement a 10&quot;.
+Dans le corps de la boucle, on imprime d'abord a l'écran la valeur actuelle de <code>i</code>, puis on assigne la valeur <code>i + 1</code> a <code>i</code>, on l'<strong>incrèmente</strong>. C'est comme &quot;rajouter 1 a i&quot;.</p>
+<p>Puis après la fin de la boucle, on imprime &quot;Fini!&quot; a l'écran.</p>
+<p>Ce morceau de code montre ce résultat : </p>
+<pre><code>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+Fini!
+</code></pre>
+<h1 id="blocs-conditionnels"><a class="header" href="#blocs-conditionnels">Blocs conditionnels</a></h1>
+<p>En Python, vous aurez très souvent besoin d'effectuer une ou des actions si une condition est vraie, et une autre si elle est fausse par exemple. Pour cela, on utilise les <strong>blocs conditionnels</strong></p>
+<h2 id="if"><a class="header" href="#if">if</a></h2>
+<p>En Python, on a le bloc conditionnel <code>if</code> (ou &quot;si&quot; en francais). </p>
+<p>Voici un exemple :</p>
+<pre><code class="language-python">prix = 5
+
+if prix &lt; 10:
+    print(&quot;Je peut m'acheter ca.&quot;)
+
+if prix &gt;= 10:
+    print(&quot;Je ne peut pas m'acheter ca.&quot;)
+</code></pre>
+<p>Dans cet exemple, nous avons d'abord créé une variable <code>prix</code> a laquelle nous avons assigné la valeur <code>5</code>.</p>
+<p>Puis nous initions un bloc conditionnel <code>if</code>, on peut lire cette ligne comme &quot;si prix est strictement inferieur a 10&quot; faire ...</p>
+<p>Puis nous avons une instruction ou nous imprimons le texte &quot;Je peut m'acheter ca&quot;. (Ne pas oublier d'<strong>indenter</strong> les lignes qui sont dans le bloc.)</p>
+<p>Ensuite, nous initions un autre bloc conditionnel <code>if</code>, on peut lire cette ligne comme &quot;si le prix est supérieur ou égal a 10&quot; faire ...</p>
+<p>Puis nous avons une instruction ou nous imprimons le texte &quot;Je ne peut pas m'acheter ca&quot;. (Ne pas oublier d'<strong>indenter</strong> les lignes qui sont dans le bloc.)</p>
+<p>Mais écrire une condition et son contraire est tout sauf simple, c'est pour cela que le bloc <code>else</code> existe : </p>
+<h2 id="else"><a class="header" href="#else">else</a></h2>
+<p>Quand une condition est vraie, on execute quelque chose, mais si elle est fausse? Comment fait-on?</p>
+<p>Voici un exemple pour vous montrer cela : </p>
+<pre><code class="language-python">prix = 7.5
+
+if prix &lt; 10:
+    print(&quot;Je peut m'acheter ca.&quot;)
+else:
+    print(&quot;Je ne peut pas m'acheter ca.&quot;)
+</code></pre>
+<p>Dans cet exemple, nous avons d'abord créé une variable <code>prix</code> a laquelle nous avons assigné la valeur <code>5</code>.</p>
+<p>Puis nous initions un bloc conditionnel <code>if</code>, on peut lire cette ligne comme &quot;si prix est strictement inferieur a 10&quot; faire ...</p>
+<p>Puis nous avons une instruction ou nous imprimons le texte &quot;Je peut m'acheter ca&quot;. (Ne pas oublier d'<strong>indenter</strong> les lignes qui sont dans le bloc.)</p>
+<p>Ensuite, nous initions le bloc <code>else</code>, que l'on peut lire &quot;sinon&quot;. C'est a dire que ce qui est dans le bloc n'est executé que si la condition dans le <code>if</code> prècèdent est fausse.</p>
+<p>Puis nous avons une instruction ou nous imprimons le texte &quot;Je ne peut pas m'acheter ca&quot;. (Ne pas oublier d'<strong>indenter</strong> les lignes qui sont dans le bloc.)</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
